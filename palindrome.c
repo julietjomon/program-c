@@ -1,28 +1,23 @@
 #include <stdio.h>
 
 int main() {
-    int n, i, j, arr[100], found = 0;
+    int num, reversed = 0, remainder, original;
 
-    printf("Enter number of elements: ");
-    scanf("%d", &n);
+    printf("Enter an integer: ");
+    scanf("%d", &num);
 
-    printf("Enter elements:\n");
-    for(i = 0; i < n; i++)
-        scanf("%d", &arr[i]);
+    original = num;
 
-    for(i = 0; i < n; i++) {
-        for(j = i + 1; j < n; j++) {
-            if(arr[i] == arr[j]) {
-                found = 1;
-                break;
-            }
-        }
+    while (num != 0) {
+        remainder = num % 10;
+        reversed = reversed * 10 + remainder;
+        num /= 10;
     }
 
-    if(found)
-        printf("Duplicate found");
+    if (original == reversed)
+        printf(" True(Palindrome) ");
     else
-        printf("All elements are distinct");
+        printf(" False (not palindrome) ");
 
     return 0;
 }
